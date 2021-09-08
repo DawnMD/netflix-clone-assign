@@ -1,25 +1,11 @@
 import SectionList from '../../components/SectionList';
 import ItemCard from '../../components/ItemCard';
-import { useEffect, useState } from 'react';
-import tmdbInstance from '../../libs/tmdbInstance';
-import apiEndpoints from '../../libs/apiEndpoints';
+import { useSelector } from 'react-redux';
 
 const Movies = () => {
-	const [discoverMovies, setDiscoverMovies] = useState([]);
-	const [tendingMovies, setTrendingMovies] = useState([]);
-	const [popularMovies, setPopularMovies] = useState([]);
-	useEffect(() => {
-		tmdbInstance
-			.get(apiEndpoints.discoverMovies)
-			.then((res) => setDiscoverMovies(res.data.results));
-		tmdbInstance
-			.get(apiEndpoints.trendingMovies)
-			.then((res) => setTrendingMovies(res.data.results));
-		tmdbInstance
-			.get(apiEndpoints.popularMovies)
-			.then((res) => setPopularMovies(res.data.results));
-	}, []);
-
+	const discoverMovies = useSelector((state) => state.movies.discover);
+	const topRatedMovies = useSelector((state) => state.movies.topRated);
+	const popularMovies = useSelector((state) => state.movies.popular);
 	return (
 		<div className='flex flex-col gap-6 px-20 pb-10'>
 			<SectionList title='Discover Movies'>
@@ -39,8 +25,8 @@ const Movies = () => {
 			</SectionList>
 			<SectionList title='Top Rated Movies'>
 				<div className='flex gap-2 overflow-hidden flex-nowrap'>
-					{tendingMovies &&
-						tendingMovies.map((movie) => (
+					{topRatedMovies &&
+						topRatedMovies.map((movie) => (
 							<ItemCard
 								id={movie.id}
 								key={movie.id}
