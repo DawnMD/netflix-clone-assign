@@ -1,13 +1,20 @@
 import Header from './components/Header';
-import { Redirect, Route } from 'react-router';
+import Movies from './pages/Movies';
+import { Redirect, Route, Switch } from 'react-router';
 
 function App() {
+	//genreLink = https://api.themoviedb.org/3/genre/movie/list?api_key=ed8703f3f7f3eb8eab6620b68091e297&language=en-US
 	return (
-		<div>
+		<div className='flex flex-col gap-8'>
 			<Header />
-			<Route exact path='/'>
-				<Redirect to='/movies' />
-			</Route>
+			<Switch>
+				{/* switching to movies page on load */}
+				<Route exact path='/'>
+					<Redirect to='/movies' />
+				</Route>
+				{/* actual movies page */}
+				<Route exact path='/movies' component={Movies} />
+			</Switch>
 		</div>
 	);
 }

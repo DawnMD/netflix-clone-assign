@@ -1,4 +1,5 @@
 module.exports = {
+	mode: 'jit',
 	purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
@@ -9,12 +10,15 @@ module.exports = {
 				netflixLightRed: '#E50914',
 			},
 			textColor: {
-				netflixSubheading: '#e5e5e5',
+				netflixwhite: '#e5e5e5',
+			},
+			minWidth: {
+				netflixCard: '18rem',
 			},
 		},
 	},
 	variants: {
 		extend: {},
 	},
-	plugins: [],
+	plugins: [require('@tailwindcss/line-clamp')],
 };
