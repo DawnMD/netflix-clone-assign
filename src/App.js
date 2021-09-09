@@ -9,7 +9,7 @@ import {
 	fetchTopRatedMovies,
 } from './redux/slice/movieSlice';
 import { useEffect } from 'react';
-// import ScrollToTop from './components/HOC/ScrollToTop';
+import ScrollToTop from './components/HOC/ScrollToTop';
 
 function App() {
 	const dispatch = useDispatch();
@@ -21,7 +21,7 @@ function App() {
 	return (
 		<div className='flex flex-col'>
 			<Header />
-			{/* <ScrollToTop /> */}
+			<ScrollToTop />
 			<Switch>
 				{/* switching to movies page on load */}
 				<Route exact path='/'>
