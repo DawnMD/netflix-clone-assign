@@ -10,6 +10,7 @@ module.exports = {
 			},
 			textColor: {
 				netflixwhite: '#e5e5e5',
+				netflixsemiBlack: '#777777',
 			},
 			minWidth: {
 				netflixCard: '18rem',

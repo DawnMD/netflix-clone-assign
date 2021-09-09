@@ -26,6 +26,14 @@ export const fetchPopularMovies = createAsyncThunk(
 	}
 );
 
+export const fetchSelectedMovie = createAsyncThunk(
+	'movies/fetchSelectedMovie',
+	async (id) => {
+		const { data } = await tmdbInstance.get(apiEndpoints.movieDetails(id));
+		return data;
+	}
+);
+
 const movieSlice = createSlice({
 	name: 'movies',
 	initialState: {
@@ -33,6 +41,7 @@ const movieSlice = createSlice({
 		topRated: [],
 		popular: [],
 		status: 'idle',
+		selectedMovie: {},
 		error: {},
 	},
 	extraReducers: {
@@ -67,6 +76,17 @@ const movieSlice = createSlice({
 		},
 		[fetchPopularMovies.fulfilled]: (state, action) => {
 			state.popular = action.payload;
+			state.status = 'idle';
+		},
+		[fetchSelectedMovie.rejected]: (state, action) => {
+			state.error = action.payload;
+			state.status = 'idle';
+		},
+		[fetchSelectedMovie.pending]: (state, _) => {
+			state.status = 'idle';
+		},
+		[fetchSelectedMovie.fulfilled]: (state, action) => {
+			state.selectedMovie = action.payload;
 			state.status = 'idle';
 		},
 	},

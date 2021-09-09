@@ -2,13 +2,13 @@ import BrandLogo from '../../assets/Images/Netflix_Logo_RGB.png';
 import Avatar1 from '../../assets/Images/avatar1.png';
 const Header = () => {
 	return (
-		<nav className='w-full px-16 h-16 flex items-center justify-between'>
+		<nav className='flex items-center justify-between w-full h-16 px-16'>
 			<div className='flex items-center gap-12'>
 				<img src={BrandLogo} alt='Brand Logo' className='h-12' />
 				<div className='flex gap-6'>
 					<span className='cursor-pointer'>Home</span>
 					<span className='cursor-pointer'>TV Shows</span>
-					<span className='cursor-pointer font-semibold text-white'>
+					<span className='font-semibold text-white cursor-pointer'>
 						Movies
 					</span>
 					<span className='cursor-pointer'>News & Popular</span>
@@ -16,7 +16,7 @@ const Header = () => {
 					<span className='cursor-pointer'>Watch Again</span>
 				</div>
 			</div>
-			<div className='flex gap-6 items-center'>
+			<div className='flex items-center gap-6'>
 				<span className='cursor-pointer'>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
@@ -45,7 +45,7 @@ const Header = () => {
 						/>
 					</svg>
 				</span>
-				<span className='cursor-pointer relative'>
+				<span className='relative cursor-pointer'>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
 						className='h-7 w-7'
@@ -53,15 +53,15 @@ const Header = () => {
 						fill='currentColor'>
 						<path d='M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z' />
 					</svg>
-					<small className='bg-netflixDarkRed rounded-2xl px-1 absolute top-0 right-0 text-xs'>
+					<small className='absolute top-0 right-0 px-1 text-xs bg-netflixDarkRed rounded-2xl'>
 						9
 					</small>
 				</span>
-				<span className='cursor-pointer flex items-center gap-1'>
-					<img src={Avatar1} alt='avatar' className='h-7 w-7 rounded' />
+				<span className='flex items-center gap-1 cursor-pointer'>
+					<img src={Avatar1} alt='avatar' className='rounded h-7 w-7' />
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
-						className='h-5 w-5'
+						className='w-5 h-5'
 						viewBox='0 0 20 20'
 						fill='currentColor'>
 						<path
@@ -71,10 +71,10 @@ const Header = () => {
 						/>
 					</svg>
 				</span>
-				<span className='cursor-pointer flex items-center gap-1'>
+				<span className='flex items-center gap-1 cursor-pointer'>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
-						className='h-6 w-6'
+						className='w-6 h-6'
 						fill='none'
 						viewBox='0 0 24 24'
 						stroke='currentColor'>
@@ -87,7 +87,7 @@ const Header = () => {
 					</svg>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
-						className='h-5 w-5'
+						className='w-5 h-5'
 						viewBox='0 0 20 20'
 						fill='currentColor'>
 						<path
