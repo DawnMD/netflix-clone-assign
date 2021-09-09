@@ -21,7 +21,9 @@ const ItemCard = (props) => {
 				/>
 				<p className='px-1 line-clamp-2'>{props.description}</p>
 				<small className='flex items-center gap-2 px-1'>
-					<span className='font-semibold'>{runtimeConverter(runtime)}</span>
+					<span className='font-semibold'>
+						{runtime && runtimeConverter(runtime)}
+					</span>
 					<span>&#8226;</span>
 					<span>{getYear(props.release)}</span>
 				</small>

@@ -1,8 +1,9 @@
 import BrandLogo from '../../assets/Images/Netflix_Logo_RGB.png';
 import Avatar1 from '../../assets/Images/avatar1.png';
+
 const Header = () => {
 	return (
-		<nav className='flex items-center justify-between w-full h-16 px-16'>
+		<nav className='sticky top-0 z-10 flex items-center justify-between w-full h-16 px-16 bg-netflixBackground'>
 			<div className='flex items-center gap-12'>
 				<img src={BrandLogo} alt='Brand Logo' className='h-12' />
 				<div className='flex gap-6'>

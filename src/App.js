@@ -9,9 +9,9 @@ import {
 	fetchTopRatedMovies,
 } from './redux/slice/movieSlice';
 import { useEffect } from 'react';
+// import ScrollToTop from './components/HOC/ScrollToTop';
 
 function App() {
-	//genreLink = https://api.themoviedb.org/3/genre/movie/list?api_key=ed8703f3f7f3eb8eab6620b68091e297&language=en-US
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(fetchDiscoverMovies());
@@ -19,8 +19,9 @@ function App() {
 		dispatch(fetchTopRatedMovies());
 	}, [dispatch]);
 	return (
-		<div className='flex flex-col gap-8'>
+		<div className='flex flex-col'>
 			<Header />
+			{/* <ScrollToTop /> */}
 			<Switch>
 				{/* switching to movies page on load */}
 				<Route exact path='/'>

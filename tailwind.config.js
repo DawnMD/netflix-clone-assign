@@ -7,6 +7,7 @@ module.exports = {
 				netflixBackground: '#141414',
 				netflixDarkRed: '#B20710',
 				netflixLightRed: '#E50914',
+				netflixCard: '#2f2f2f',
 			},
 			textColor: {
 				netflixwhite: '#e5e5e5',
