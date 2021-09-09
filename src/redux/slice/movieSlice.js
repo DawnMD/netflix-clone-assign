@@ -29,10 +29,10 @@ export const fetchPopularMovies = createAsyncThunk(
 const movieSlice = createSlice({
 	name: 'movies',
 	initialState: {
-		discover: [],
-		topRated: [],
-		popular: [],
-		error: {},
+		discover: null,
+		topRated: null,
+		popular: null,
+		error: null,
 	},
 	extraReducers: {
 		[fetchDiscoverMovies.rejected]: (state, action) => {

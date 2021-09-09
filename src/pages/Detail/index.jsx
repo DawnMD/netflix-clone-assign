@@ -13,6 +13,7 @@ import Loader from '../../components/Loader';
 import useSWR from 'swr';
 import apiEndpoints from '../../libs/apiEndpoints';
 import SimilarCard from '../../components/SimilarCard';
+import DetailsInfo from '../../components/DetailsInfo';
 
 const ComponentName = (props) => {
 	const { data, error } = useSWR(
@@ -58,18 +59,8 @@ const ComponentName = (props) => {
 						<p className='text-lg font-medium'>{data.overview}</p>
 					</div>
 					<div className='flex flex-col gap-4'>
-						<small>
-							<span className='text-sm font-medium text-netflixsemiBlack'>
-								Cast:
-							</span>{' '}
-							<span className='text-sm'>{filterCast(crews.cast)}</span>
-						</small>
-						<small>
-							<span className='text-sm font-medium text-netflixsemiBlack'>
-								Genres:
-							</span>{' '}
-							<span className='text-sm'>{getGenres(data.genres)}</span>
-						</small>
+						<DetailsInfo title='Cast' detail={filterCast(crews.cast)} />
+						<DetailsInfo title='Genres' detail={getGenres(data.genres)} />
 					</div>
 				</div>
 				<div className='flex flex-col gap-4'>
@@ -95,24 +86,9 @@ const ComponentName = (props) => {
 						About <strong>{data.title}</strong>
 					</h3>
 					<div className='flex flex-col w-1/2 gap-4'>
-						<small>
-							<span className='text-sm font-medium text-netflixsemiBlack'>
-								Director:
-							</span>{' '}
-							<span className='text-sm'>{filterDirector(crews.crew)}</span>
-						</small>
-						<small>
-							<span className='text-sm font-medium text-netflixsemiBlack'>
-								Cast:
-							</span>{' '}
-							<span className='text-sm'>{filterCast(crews.cast)}</span>
-						</small>
-						<small>
-							<span className='text-sm font-medium text-netflixsemiBlack'>
-								Genres:
-							</span>{' '}
-							<span className='text-sm'>{getGenres(data.genres)}</span>
-						</small>
+						<DetailsInfo title='Director' detail={filterDirector(crews.crew)} />
+						<DetailsInfo title='Cast' detail={filterCast(crews.cast)} />
+						<DetailsInfo title='Genres' detail={getGenres(data.genres)} />
 					</div>
 				</div>
 			</div>

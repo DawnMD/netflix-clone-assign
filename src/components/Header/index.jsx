@@ -1,5 +1,6 @@
 import BrandLogo from '../../assets/Images/Netflix_Logo_RGB.png';
 import Avatar1 from '../../assets/Images/avatar1.png';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 	return (
@@ -9,9 +10,11 @@ const Header = () => {
 				<div className='flex gap-6'>
 					<span className='cursor-pointer'>Home</span>
 					<span className='cursor-pointer'>TV Shows</span>
-					<span className='font-semibold text-white cursor-pointer'>
-						Movies
-					</span>
+					<Link to='/movies'>
+						<span className='font-semibold text-white cursor-pointer'>
+							Movies
+						</span>
+					</Link>
 					<span className='cursor-pointer'>News & Popular</span>
 					<span className='cursor-pointer'>My List</span>
 					<span className='cursor-pointer'>Watch Again</span>
