@@ -6,7 +6,9 @@ const Header = () => {
 	return (
 		<nav className='sticky top-0 z-10 flex items-center justify-between w-full h-16 px-16 bg-netflixBackground'>
 			<div className='flex items-center gap-12'>
-				<img src={BrandLogo} alt='Brand Logo' className='h-12' />
+				<Link to='/'>
+					<img src={BrandLogo} alt='Brand Logo' className='h-12' />
+				</Link>
 				<div className='flex gap-6'>
 					<span className='cursor-pointer'>Home</span>
 					<span className='cursor-pointer'>TV Shows</span>

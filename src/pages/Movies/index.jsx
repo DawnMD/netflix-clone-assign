@@ -2,6 +2,7 @@ import SectionList from '../../components/SectionList';
 import ItemCard from '../../components/ItemCard';
 import { useSelector } from 'react-redux';
 import Loader from '../../components/Loader';
+import ScrollWrapper from '../../components/ScrollWrapper';
 
 const Movies = () => {
 	const discoverMovies = useSelector((state) => state.movies.discover);
@@ -10,9 +11,9 @@ const Movies = () => {
 	return (
 		<>
 			{discoverMovies && topRatedMovies && popularMovies ? (
-				<div className='flex flex-col gap-6 px-20 pb-10'>
+				<div className='flex flex-col gap-6 pb-10 pl-20'>
 					<SectionList title='Discover Movies'>
-						<div className='flex gap-2 overflow-hidden flex-nowrap'>
+						<ScrollWrapper>
 							{discoverMovies &&
 								discoverMovies.map((movie) => (
 									<ItemCard
@@ -24,10 +25,10 @@ const Movies = () => {
 										release={movie.release_date}
 									/>
 								))}
-						</div>
+						</ScrollWrapper>
 					</SectionList>
 					<SectionList title='Top Rated Movies'>
-						<div className='flex gap-2 overflow-hidden flex-nowrap'>
+						<ScrollWrapper>
 							{topRatedMovies &&
 								topRatedMovies.map((movie) => (
 									<ItemCard
@@ -39,10 +40,10 @@ const Movies = () => {
 										release={movie.release_date}
 									/>
 								))}
-						</div>
+						</ScrollWrapper>
 					</SectionList>
 					<SectionList title='Popular Movies'>
-						<div className='flex gap-2 overflow-hidden flex-nowrap'>
+						<ScrollWrapper>
 							{popularMovies &&
 								popularMovies.map((movie) => (
 									<ItemCard
@@ -54,7 +55,7 @@ const Movies = () => {
 										release={movie.release_date}
 									/>
 								))}
-						</div>
+						</ScrollWrapper>
 					</SectionList>
 				</div>
 			) : (
