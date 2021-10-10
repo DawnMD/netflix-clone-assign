@@ -14,6 +14,7 @@ import {
   fetchFullMovie,
   resetMovie,
 } from '../../redux/slice/movieDetailsSlice';
+
 import { useSelector } from 'react-redux';
 
 const ComponentName = ({ match }) => {
