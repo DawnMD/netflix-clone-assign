@@ -1,17 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import {
   fetchDiscoverMovies,
-  fetchFullMovieDetails,
   fetchPopularMovies,
   fetchTopRatedMovies,
 } from '../../apis/movieEndpoints';
-
-const getAllDetails = async (movieArray) =>
-  await Promise.all(
-    movieArray.map(async (movie) => {
-      return await fetchFullMovieDetails(movie.id);
-    })
-  );
+import { getAllDetails } from '../../utils/helperFuntions';
 
 export const fetchAllMovies = createAsyncThunk(
   'allMovies/fetchAll',
