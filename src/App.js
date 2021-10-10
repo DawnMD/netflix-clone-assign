@@ -16,7 +16,7 @@ function App() {
         </Route>
         {/* actual movies page */}
         <Route exact path='/movies' component={Movies} />
-        {/* <Route path='/movies/:id' component={Detail} /> */}
+        <Route path='/movies/:id' component={Detail} />
       </Switch>
     </div>
   );
