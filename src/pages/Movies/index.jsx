@@ -44,6 +44,7 @@ const Movies = () => {
                     imageUrl={movie.backdrop_path}
                     description={movie.overview}
                     release={movie.release_date}
+                    runtime={movie.runtime}
                   />
                 ))}
               </ScrollWrapper>
@@ -58,6 +59,7 @@ const Movies = () => {
                     imageUrl={movie.backdrop_path}
                     description={movie.overview}
                     release={movie.release_date}
+                    runtime={movie.runtime}
                   />
                 ))}
               </ScrollWrapper>
@@ -72,6 +74,7 @@ const Movies = () => {
                     imageUrl={movie.backdrop_path}
                     description={movie.overview}
                     release={movie.release_date}
+                    runtime={movie.runtime}
                   />
                 ))}
               </ScrollWrapper>
