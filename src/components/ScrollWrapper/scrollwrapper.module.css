@@ -1,6 +1,6 @@
 .scroll::-webkit-scrollbar {
-	display: none;
+  display: none;
 }
 .scroll {
-	@apply overflow-x-scroll;
+  @apply overflow-x-scroll;
 }
