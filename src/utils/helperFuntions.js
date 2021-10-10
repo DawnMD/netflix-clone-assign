@@ -1,4 +1,5 @@
 import tmdbInstance from '../libs/tmdbInstance';
+import { fetchFullMovieDetails } from '../apis/movieEndpoints';
 
 export const getYear = (dateString) => {
   return dateString.substring(0, dateString.indexOf('-'));
@@ -42,3 +43,10 @@ export const fetcher = async (url) => {
   const { data } = await tmdbInstance.get(url);
   return data;
 };
+
+export const getAllDetails = async (movieArray) =>
+  await Promise.all(
+    movieArray.map(async (movie) => {
+      return await fetchFullMovieDetails(movie.id);
+    })
+  );
