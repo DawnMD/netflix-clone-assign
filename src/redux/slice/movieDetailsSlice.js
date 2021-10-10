@@ -4,6 +4,7 @@ import {
   fetchSimilarMovies,
   fetchMovieCastCrew,
 } from '../../apis/movieEndpoints';
+import { getAllDetails } from '../../utils/helperFuntions';
 
 export const fetchFullMovie = createAsyncThunk(
   'movieDetails/fetch',
@@ -16,7 +17,7 @@ export const fetchFullMovie = createAsyncThunk(
       return {
         ...movie,
         ...castAndCrew,
-        similar: similarMovies.results,
+        similar: await getAllDetails(similarMovies.results),
       };
     } catch (error) {
       return error.response;
@@ -33,6 +34,26 @@ const initialState = {
 const movieDetailsSlice = createSlice({
   name: 'movieDetails',
   initialState,
+  reducers: {
+    resetMovie: (state, action) => {
+      return initialState;
+    },
+  },
+  extraReducers: {
+    [fetchFullMovie.rejected]: (state, action) => {
+      state.uiState = 'FAILED';
+      state.error = action.payload;
+    },
+    [fetchFullMovie.pending]: (state, action) => {
+      state.uiState = 'LOADING';
+    },
+    [fetchFullMovie.fulfilled]: (state, action) => {
+      state.uiState = 'DONE';
+      state.movie = action.payload;
+    },
+  },
 });
+
+export const { resetMovie } = movieDetailsSlice.actions;
 
 export default movieDetailsSlice.reducer;
